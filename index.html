@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUTURE TETRIS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <h1>FUTURE<span class="accent">TETRIS</span></h1>
+      </div>
+      <p class="tagline">Навигация в цифровом пространстве</p>
+    </header>
+
+    <main class="game-layout">
+      <aside class="panel panel-left">
+        <section class="stat-block">
+          <h2 class="panel-title">HOLD</h2>
+          <canvas id="hold-canvas" width="120" height="120" aria-label="Удерживаемая фигура"></canvas>
+        </section>
+
+        <section class="stat-block">
+          <h2 class="panel-title">СТАТИСТИКА</h2>
+          <dl class="stats">
+            <div class="stat-row">
+              <dt>Очки</dt>
+              <dd id="score">0</dd>
+            </div>
+            <div class="stat-row">
+              <dt>Уровень</dt>
+              <dd id="level">1</dd>
+            </div>
+            <div class="stat-row">
+              <dt>Линии</dt>
+              <dd id="lines">0</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+
+      <div class="board-wrap">
+        <button id="mute-btn" class="mute-btn" type="button" aria-label="Звук вкл/выкл" title="Звук">🔊</button>
+        <canvas id="game-canvas" width="300" height="600" aria-label="Игровое поле"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-content">
+            <h2 id="overlay-title">FUTURE TETRIS</h2>
+            <p id="overlay-text">Нажмите Enter для старта</p>
+            <button id="start-btn" class="btn-primary">ЗАПУСК</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel panel-right">
+        <section class="stat-block">
+          <h2 class="panel-title">NEXT</h2>
+          <canvas id="next-canvas" width="120" height="120" aria-label="Следующая фигура"></canvas>
+        </section>
+
+        <section class="stat-block controls-block">
+          <h2 class="panel-title">УПРАВЛЕНИЕ</h2>
+          <ul class="controls-list">
+            <li><kbd>←</kbd><kbd>→</kbd> Движение</li>
+            <li><kbd>↑</kbd> Поворот</li>
+            <li><kbd>↓</kbd> Ускорение</li>
+            <li><kbd>Space</kbd> Сброс</li>
+            <li><kbd>C</kbd> Hold</li>
+            <li><kbd>P</kbd> Пауза</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span class="pulse-dot"></span>
+      СИСТЕМА АКТИВНА · RETRO-FUTURE MODE
+    </footer>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
